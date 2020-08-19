@@ -1,0 +1,23 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<div class=”row>
+<% if user_signed_in?%>
+<%= render 'tweets/form', tweet: @tweet%>
+<%end%>
+</div>
+<% @tweets.each do |tweet| %>
+<div class=”col-12 border norder_info”>
+    <%= image_tag (tweet.user.photo_url), class:”avatar-in-tweet rounded” %>
+<%= tweet.content %>
+<hr/>
+<div class=”float-right”>
+<%=tweet. likes.count %> likes | 0 re-tweets
+</div>
+</div>
+<%end%>
+
+<%=paginate @tweets%>
+<%# <%= link_to_next_page @tweets, "Mostrar más"%> %>
+</div>
+
